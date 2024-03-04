@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="60;url=question3.html">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="91.css"/>
+    <link rel="icon" href="icon505.png">
+</head>
+<body>
+    <main class="main">
+        <header class="header">
+            <a href="project.html" class="logo">Quiz</a>
+            
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+              </div>
+              
+              
+            
+            <nav class="navbarQ">
+                <a href="confirmationforq1.html">Exit</a>
+                
+            </nav>
+        </header>
+        <div class="qbox">
+            <div class="qboxchild">
+              <h2>Question 2</h2>
+              <p>What does CSS stand for?</p>
+              <div class="questionbox">
+                <a class="questions" id="option1"><p>Cascading Sheet Style</p></a>
+                <a class="questions" id="option2"><p>Cute Sheet Style</p></a>
+                <a class="questions" id="option3"><p>Computer Sheet Style</p></a>
+                <a class="questions" id="option4"><p>Catastrophic Sheet Style</p></a>
+               
+              </div>
+              <button class="hint" id="hint" >HINT</button>
+            </div>
+            
+          </div>
+          
+          
+          <div class="promptbox" id="promptbox">
+            <div class="promptbox-inner">
+              <h2>Wrong</h2>
+              <p>The right answer is something else</p>
+              <button id="promptcloser" class="promptcloser" onclick="window.location.href='question3.html';">NEXT</button>
+            </div>
+          </div>
+
+          <a class="right" id="rightopener">Submit</a>
+        <div class="rightbox" id="rightbox">
+          <div class="promptbox-inner">
+            <h2>Right</h2>
+            <p>The right answer is something else</p>
+            <button id="rightcloser" class="rightcloser" onclick="window.location.href='question3.html';">NEXT</button>
+          </div>
+        </div>
+
+        <video autoplay muted loop>
+          <source src="VJ.mp4" type="video/mp4">
+        </video> 
+        
+          
+        <script>
+            const hint = document.getElementById("hint");
+            const promptbox = document.getElementById("promptbox");
+            const rightbox = document.getElementById("rightbox");
+    
+            const closebtn = document.getElementById("promptcloser");
+            const openright = document.getElementById("rightopener");
+            const closeright = document.getElementById("rightcloser");
+    
+            const option1 = document.getElementById("option1");
+            const option2 = document.getElementById("option2");
+            const option3 = document.getElementById("option3");
+            const option4 = document.getElementById("option4");
+    
+            // Load the score from localStorage
+            let score = localStorage.getItem("score") || 0;
+    
+            function updateScore(newScore) {
+                score = newScore;
+                localStorage.setItem("score", score);
+                console.log("Score: " + score);
+            }
+    
+            // Event listeners for the second question
+            option1.addEventListener("click", () => {
+                promptbox.classList.add("open");
+                updateScore(score); // Score remains the same for a wrong answer
+            });
+    
+            option2.addEventListener("click", () => {
+                promptbox.classList.add("open");
+                updateScore(score); // Score remains the same for a wrong answer
+            });
+    
+            option3.addEventListener("click", () => {
+                rightbox.classList.add("open");
+                updateScore(score + 1); // Increase the score for a correct answer
+            });
+    
+            option4.addEventListener("click", () => {
+                promptbox.classList.add("open");
+                updateScore(score); // Score remains the same for a wrong answer
+            });
+    
+            // ... Your existing event listeners ...
+    
+        </script>

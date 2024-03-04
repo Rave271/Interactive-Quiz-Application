@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="60;url=question2.html">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="91.css"/>
+    <link rel="icon" href="icon505.png">
+</head>
+<body>
+  <div class="videoplayback">
+    <video autoplay muted loop>
+        <source src="drops.mp4" type="video/mp4">
+    </video>
+</div>
+  
+   
+        <header class="header">
+            <a href="project.html" class="logo">Quiz</a>
+            
+            <div class="progress-container">
+                <div class="progress-bar"></div>
+              </div>
+              
+              
+            
+            <nav class="navbarQ">
+                <a href="confirmationforq1.html">Exit</a>
+                
+            </nav>
+        </header>
+
+        
+        <div class="qbox">
+            <div class="qboxchild">
+              <h2>Question 1</h2>
+              <p>What does HTML stand for?</p>
+              <div class="questionbox">
+                <a class="questions" id="option1"><p>Hyper Text Multi Language</p></a>
+                <a class="questions" id="option2"><p>Hyper Text Multiple Language</p></a>
+                <a class="questions" id="option3"><p>Hyper Text Markup Language</p></a>
+                <a class="questions" id="option4"><p>Home Text Multi Language</p></a>
+               
+              </div>
+              <button class="hint" id="hint" >HINT</button>
+            </div>
+            
+          </div>
+          
+          
+          
+          <div class="promptbox" id="promptbox">
+            <div class="promptbox-inner">
+              <h2>Wrong</h2>
+              <p>The right answer is something else</p>
+              <button id="promptcloser" class="promptcloser" onclick="window.location.href='question2.html';">NEXT</button>
+            </div>
+          </div>
+
+          <a class="right" id="rightopener">Submit</a>
+        <div class="rightbox" id="rightbox">
+          <div class="promptbox-inner">
+            <h2>Right</h2>
+            <p>The right answer is something else</p>
+            <button id="rightcloser" class="rightcloser" onclick="window.location.href='question2.html';">NEXT</button>
+          </div>
+        </div>
+        
+        
+</body> 
+        
+          
+          <script>
+            
+            
+            const hint = document.getElementById("hint")
+            hint.addEventListener("click",function(){
+                alert("Can't Be Home Text Multi Language")
+            })
+
+
+            const closebtn = document.getElementById("promptcloser");
+            const promptbox = document.getElementById("promptbox");
+            answercheck="w"
+          
+            closebtn.addEventListener("click", () => {
+              promptbox.classList.remove("open");
+            });
+            const openright = document.getElementById("rightopener");
+          const closeright = document.getElementById("rightcloser");
+          const rightbox = document.getElementById("rightbox");
+          
+
+        
+          openright.addEventListener("click", () => {
+            rightbox.classList.add("open");
+          });
+        
+          closeright.addEventListener("click", () => {
+            rightbox.classList.remove("open");
+          });
+            
+          
+            const option1 = document.getElementById("option1");
+            const option2 = document.getElementById("option2");
+            const option3 = document.getElementById("option3");
+            const option4 = document.getElementById("option4");
+          
+
+const scorecard=0;
+localStorage.setItem('score', scorecard);
+
+            option1.addEventListener("click", () => {
+    promptbox.classList.add("open");
+     // Score remains the same for a wrong answer
+  });
+          
+  option2.addEventListener("click", () => {
+    promptbox.classList.add("open");
+     // Score remains the same for a wrong answer
+  });
+          
+  option3.addEventListener("click", () => {
+    rightbox.classList.add("open");
+    const storedNumber = parseInt(localStorage.getItem('score'), 1) || 0;
+    const adder = storedNumber + 1;
+    localStorage.setItem('score', adder);
+    console.log('Updated Number:', adder);
+
+
+    // Increase the score for a correct answer
+  });
+          
+  option4.addEventListener("click", () => {
+    promptbox.classList.add("open");
+     // Score remains the same for a wrong answer
+  });
+            
+
+    
+          </script>

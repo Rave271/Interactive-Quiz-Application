@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Website</title>
+    <link rel="stylesheet" href="91.css"/>
+    <link rel="icon" href="icon505.png">
+    <style>
+        /* Add your CSS styles here */
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: relative; /* Ensure the body covers the entire viewport */
+        }
+
+        .main1 {
+            position: relative; /* Ensure the main1 section covers the entire viewport */
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            background-color: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 32px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            filter: drop-shadow(0px 0px 5px #09001d);
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Adjust the height as needed */
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .qbox {
+            position: absolute;
+            top: 50%; /* Adjust the vertical position as needed */
+            left: 50%; /* Adjust the horizontal position as needed */
+            transform: translate(-50%, -50%);
+            z-index: 101; /* Ensure the qbox is displayed above the video (higher z-index) */
+            background: rgba(0, 0, 0, 0.7); /* Add a semi-transparent background for readability */
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .qbox h1{
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <main class="main1">
+        <header class="header">
+            <a href="#" class="logo" onclick="location.href = 'Project.html';" id="myButton">Quiz</a>
+        </header>
+        <div class="video-wrapper">
+            <video autoplay muted loop >
+                <source src="endgame.mp4" type="video/mp4">
+            </video>
+        </div>
+        <section class="qbox">
+            <div class="qboxchild">
+                <h2>You Scored:</h2>
+                <h1 id="result"></h1>
+                
+                
+                <button class="Home-button" onclick="window.location.href='quizselection.html'">Home</button>
+            </div>
+        </section>
+        
+    </main>
+    <script>
+        const storedNumber = parseInt(localStorage.getItem('score'), 10) || 0;
+        const resultElement = document.getElementById('result');
+        const totalQuestions  = 5; // replace with any value you want to add
+        const adder = storedNumber;
+        const resultFraction = `${adder}/${totalQuestions}`;
+
+        // Update the stored number in localStorage
+        localStorage.setItem( 'score', adder)
+        resultElement.textContent =resultFraction;
+
+       
+    </script>
+    
+</body>
+</html>
